@@ -1,0 +1,7 @@
+
+tensorflow==2.21.0
+streamlit
+numpy
+pandas
+plotly
+boto3
