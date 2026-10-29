@@ -1,0 +1,17 @@
+[Unit]
+Description=ProteinScope AI Streamlit Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/proteinscope
+Environment="PATH=/home/ubuntu/proteinscope/venv/bin:/usr/bin"
+Environment="AWS_REGION=us-east-1"
+Environment="CLOUDWATCH_METRICS=true"
+ExecStart=/home/ubuntu/proteinscope/venv/bin/streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
